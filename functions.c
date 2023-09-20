@@ -1,7 +1,10 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 
-/************************* PRINT CHAR *************************/
 
+/*** PRINT CHAR ****/
 /**
  * print_char - Print a char
  * @types: List of arguments
@@ -17,7 +20,7 @@ int print_char(va_list typ, char buffer[],
 {
 	char c = va_arg(typ, int);
 
-	return (handle_write_char(c, buffer, flags, width, precision, size));
+	return ( handle_write_char(c, buffer, flags, width, precision, size));
 }
 /***** PRINT A STRING ***********/
 /**
@@ -137,7 +140,7 @@ int print_int(va_list typ, char buffer[],
 
 	v++;
 
-	return (write_number(is_ngtv, v, buffer, flags, width, precision, size));
+	return ( write_number(is_ngtv, v, buffer, flags, width, precision, size));
 	}
 
 /**** PRINT BINARY ****/

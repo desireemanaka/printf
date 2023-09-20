@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
 
 void print_buffer(char buffer[], int *buff_ind);
 
@@ -35,9 +38,9 @@ int _printf(const char *format, ...)
 			flags = get_flags(format, &c);
 			width = get_width(format, &c, lst);
 			precision = get_precision(format, &c, lst);
-			size = get_size(format, &c);
+			size =  get_size(format, &c);
 			++c;
-			prnt = handle_print(format, &c, lst, buffer,
+			prnt =  handle_print(format, &c, lst, buffer,
 				flags, width, precision, size);
 			if (prnt == -1)
 				return (-1);
