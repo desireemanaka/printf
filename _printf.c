@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[a] != '%')
 		{
-			buffer[buff_ind++] = format[i];
+			buffer[buff_ind++] = format[a];
 			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
 			/* write(1, &format[i], 1);*/
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			precision = get_precision(format, &a, lst);
 			size = get_size(format, &a);
 			++a;
-			printed = handle_print(format, &a, lst, buffer,
+			prnt = handle_print(format, &a, lst, buffer,
 				flags, width, precision, size);
 			if (prnt == -1)
 				return (-1);
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 
 	print_buffer(buffer, &buff_ind);
 
-	va_end(list);
+	va_end(lst);
 
 	return (prnt_chars);
 }
